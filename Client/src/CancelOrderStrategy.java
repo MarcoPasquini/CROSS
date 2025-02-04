@@ -1,0 +1,40 @@
+package cross.client;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import com.google.gson.JsonObject;
+
+public class CancelOrderStrategy extends ActionStrategy {
+	private static final int OK = 100;
+	private static final int OTHER = 101;
+	
+	public boolean requiresLogin() {
+		return true;
+	}
+	public boolean requiresLogout() {
+		return false;
+	}
+	
+	public Map<String, Object> getParameters(Scanner scanner) {
+		int orderId = retriveIntDataFromUser(scanner, "orderId");
+		
+		Map<String, Object> valuesParameters = new HashMap<>();
+        
+        valuesParameters.put("orderId", orderId);
+        
+		return valuesParameters;
+	}
+	
+	public boolean evaluateResponse(JsonObject message) {
+		int response = message.get("response").getAsInt();
+        String errorMessage = message.get("errorMessage").getAsString();
+        switch(response) {
+	        case OK -> {return printSuccessMessage("Order canelled correctly");}
+	        case OTHER -> printErrorMessage("Error: ", errorMessage);
+	        default -> printErrorMessage("Unexpected response code: ", errorMessage);
+        }
+        return false;
+	}
+}
