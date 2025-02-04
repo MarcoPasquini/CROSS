@@ -4,8 +4,6 @@ Implementation of the order book, a fundamental service in financial markets use
 
 ---
 
----
-
 **User Manual**
 
 **External Libraries Used:** gson, CROSSSharedUtils.
