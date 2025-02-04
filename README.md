@@ -56,7 +56,7 @@ java -jar ServerMain.jar
 
 ---
 
-#Implementation
+# Implementation
 
 ## Client
 The ClientMain class manages the connection to a server using TCP and UDP protocols, allowing users to interact via a Command Line Interface (CLI).
