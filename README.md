@@ -1,8 +1,7 @@
-# CROSS
-## an exChange oRder bOokS Service
+# CROSS - an exChange oRder bOokS Service
 
 Implementation of the order book, a fundamental service in financial markets used to support the exchange of assets (stocks, securities, other financial instruments, cryptocurrencies) in centralized trading services.
-
+---
 **Client**
 The ClientMain class manages the connection to a server using TCP and UDP protocols, allowing users to interact via a Command Line Interface (CLI).
 
